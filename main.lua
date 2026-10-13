@@ -13,6 +13,8 @@ function love.load()
 	print(go:isA("Sprite"))
 	print(-a)
 	print(go.active)
+	go:setAttribute("position", {x=10, y=10})
+	print(go:getAttribute("position"))
 
 	return
 end

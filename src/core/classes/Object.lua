@@ -1,7 +1,6 @@
----@alias Component StaticComponent
-
 ---@class Object
 ---@field uniqueId integer Unique indentificator
+---@field protected attributes table<string, any> All attributes from an object
 ---@field protected _isDestroyed boolean Whether the Object is destroyed
 ---@field protected _className Enums.Classes The class name os the object
 ---@field protected _superClass Object The reference of the parent class
@@ -22,6 +21,7 @@ function Object.new(class)
 
 	self.uniqueId = currentId
 	self._isDestroyed = false
+	self.attributes = {}
 
 	return self
 end
@@ -30,6 +30,22 @@ end
 ---@return Enums.Classes
 function Object:getClassName()
 	return self._className
+end
+
+---@param key string
+---@param value any
+function Object:setAttribute(key, value)
+	self.attributes[key] = value
+end
+
+---@param key string
+---@return any?
+function Object:getAttribute(key)
+	return self.attributes[key]
+end
+
+function Object:getAttributes()
+	return self.attributes
 end
 
 ---Returns true if an object's class matches or inherits from a given class.
