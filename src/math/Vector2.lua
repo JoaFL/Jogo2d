@@ -5,6 +5,7 @@ local Object = require("src.core.classes.Object")
 ---@field y number
 ---@field protected __index Vector2
 local Vector2 = Object:extends()
+Vector2._className = Enums.Classes.Vector2
 
 ---@param x number?
 ---@param y number?

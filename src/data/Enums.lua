@@ -9,6 +9,7 @@ Enums.Classes = {
 	Transform = "Transform",
 	Sprite = "Sprite",
 	Tag = "Tag",
+	Vector2 = "Vector2",
 }
 
 ---@enum Enums.ColorsFromRGB

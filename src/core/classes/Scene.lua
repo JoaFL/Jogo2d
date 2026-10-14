@@ -1,20 +1,20 @@
 local BehaviorObject = require("src.core.classes.BehaviorObject")
 
 ---@class Scene : BehaviorObject
----@field objects (Object | BehaviorObject | GameObject)[]
+---@field gameObjects GameObject[]
 local Scene = BehaviorObject:extends()
 
 function Scene.new()
 	local self = BehaviorObject.new(Scene)
 
-	self.objects = {}
+	self.gameObjects = {}
 
 	return self
 end
 
 function Scene:update(dt)
-	for i=1, #self.objects do
-		local go = self.objects[i]
+	for i=1, #self.gameObjects do
+		local go = self.gameObjects[i]
 
 		if go.update then
 			go:update(dt)
@@ -22,9 +22,9 @@ function Scene:update(dt)
 	end
 end
 
----@param object Object | GameObject | BehaviorObject
-function Scene:addObject(object)
-	table.insert(self.objects, object)
+---@param gameObject GameObject
+function Scene:addObject(gameObject)
+	table.insert(self.gameObjects, gameObject)
 end
 
 function Scene:getObject()
