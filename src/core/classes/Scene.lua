@@ -13,8 +13,12 @@ function Scene.new()
 end
 
 function Scene:update(dt)
+	if not self.active then
+		return
+	end
+
 	for i=1, #self.gameObjects do
-		local go = self.gameObjects[i]
+		local gameObject = self.gameObjects[i]
 
 		if go.update then
 			go:update(dt)
@@ -27,12 +31,25 @@ function Scene:addObject(gameObject)
 	table.insert(self.gameObjects, gameObject)
 end
 
-function Scene:getObject()
-	
+---@param className Enums.Classes
+---@return Object?
+function Scene:findObjectWhichIsA(className)
+	for i=1, self.gameObjects do
+		local object = self.gameObjects[i]
+
+		if object:getClassName() == className then
+			return object
+		end
+	end
 end
 
-function Scene:removeObject()
-	
+---@param uniqueId integer
+function Scene:removeObject(uniqueId)
+	for i=1, #self.gameObjects do
+		local go = self.gameObjects[i]
+		
+
+	end
 end
 
 return Scene
