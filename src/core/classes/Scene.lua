@@ -33,7 +33,7 @@ end
 
 ---@param className Enums.Classes
 ---@return Object?
-function Scene:findObjectWhichIsA(className)
+function Scene:findFirstWhichIsA(className)
 	for i=1, self.gameObjects do
 		local object = self.gameObjects[i]
 
@@ -43,12 +43,27 @@ function Scene:findObjectWhichIsA(className)
 	end
 end
 
+---@param className Enums.Classes
+---@return Object[]
+function Scene:getAllWhichIsA(className)
+	local objects = {}
+	for i=1, self.gameObjects do
+		local object = self.gameObjects[i]
+
+		if object:getClassName() == className then
+			table.insert(object, objects)
+		end
+	end
+
+	return objects
+end
+
 ---@param uniqueId integer
 function Scene:removeObject(uniqueId)
 	for i=1, #self.gameObjects do
 		local go = self.gameObjects[i]
 		
-
+		
 	end
 end
 
