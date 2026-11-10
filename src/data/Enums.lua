@@ -10,6 +10,7 @@ Enums.Classes = {
 	Sprite = "Sprite",
 	Tag = "Tag",
 	Vector2 = "Vector2",
+	AnimatedSprite = "AnimatedSprite",
 }
 
 ---@enum Enums.ColorsFromRGB

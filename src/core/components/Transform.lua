@@ -3,12 +3,13 @@ local Vector2 = require("src.math.Vector2")
 
 ---@class Transform : Component
 ---@field position Vector2
----@field rotation number
+---@field rotation integer
 ---@field scale Vector2
 ---@field private extends function
 local Transform = Component:extends()
 Transform._className = Enums.Classes.Transform
 
+---@return Transform|Component
 function Transform.new()
 	local self = Component.new(Transform)
 
