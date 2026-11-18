@@ -9,9 +9,10 @@ local Vector2 = require("src.math.Vector2")
 local Transform = Component:extends()
 Transform._className = Enums.Classes.Transform
 
----@return Transform|Component
+---@return Transform
 function Transform.new()
 	local self = Component.new(Transform)
+	---@cast self Transform
 
 	self.position = Vector2.new()
 	self.rotation = 0

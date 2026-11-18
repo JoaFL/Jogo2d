@@ -1,10 +1,12 @@
 local BehaviorObject = require("src.core.classes.BehaviorObject")
+local Transform      = require("src.core.components.Transform")
 
 ---@class GameObject : BehaviorObject
 ---@field visible boolean Visible state
 ---@field protected _components Component[] Array of current components
 ---@field protected _children GameObject[] Array of current children
 ---@field protected _superClass BehaviorObject
+---@field transform Transform
 local GameObject = BehaviorObject:extends()
 GameObject._className = Enums.Classes.GameObject ---@protected
 
@@ -16,6 +18,7 @@ function GameObject.new(class)
 
 	self.visible = true
 	self._components = {}
+	self.transform = Transform.new()
 
 	return self
 end
