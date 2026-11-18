@@ -1,0 +1,7 @@
+site_name: Documentação do Projeto
+theme:
+  name: material
+  language: pt-BR
+nav:
+  - Início: index.md
+  - Componentes: components.md
