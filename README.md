@@ -17,7 +17,7 @@ Um pequeno projeto de jogo2d utilizando uma mini-engine própria
 ### Estrutura de pastas:
 * src/core/ | Arquivos essenciais da engine
 * src/game/ | Arquivos essenciais do jogo
-* src/rendering | Arquivos para componentes e classes visuais
+* src/rendering/ | Arquivos para componentes e classes visuais
 ------------------------------------------------------------
 
 ### Scripts disponíveis
