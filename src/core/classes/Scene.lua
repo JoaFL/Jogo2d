@@ -20,8 +20,8 @@ function Scene:update(dt)
 	for i=1, #self.gameObjects do
 		local gameObject = self.gameObjects[i]
 
-		if go.update then
-			go:update(dt)
+		if gameObject.update and gameObject.active then
+			gameObject:update(dt)
 		end
 	end
 end
@@ -35,10 +35,10 @@ end
 ---@return Object?
 function Scene:findFirstWhichIsA(className)
 	for i=1, self.gameObjects do
-		local object = self.gameObjects[i]
+		local gameObject = self.gameObjects[i]
 
-		if object:getClassName() == className then
-			return object
+		if gameObject:getClassName() == className then
+			return gameObject
 		end
 	end
 end
@@ -48,10 +48,10 @@ end
 function Scene:getAllWhichIsA(className)
 	local objects = {}
 	for i=1, self.gameObjects do
-		local object = self.gameObjects[i]
+		local gameObject = self.gameObjects[i]
 
-		if object:getClassName() == className then
-			table.insert(object, objects)
+		if gameObject:getClassName() == className then
+			table.insert(gameObject, objects)
 		end
 	end
 
@@ -61,7 +61,7 @@ end
 ---@param uniqueId integer
 function Scene:removeObject(uniqueId)
 	for i=1, #self.gameObjects do
-		local go = self.gameObjects[i]
+		local gameObject = self.gameObjects[i]
 		
 		
 	end
