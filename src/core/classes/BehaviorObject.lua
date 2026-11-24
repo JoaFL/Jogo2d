@@ -22,4 +22,7 @@ end
 ---@param dt number Delta time
 function BehaviorObject:update(dt) end
 
+---Override for custom draw behavior
+function BehaviorObject:draw() end
+
 return BehaviorObject

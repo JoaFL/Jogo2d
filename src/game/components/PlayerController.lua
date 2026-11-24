@@ -1,4 +1,7 @@
 local Component = require("src.core.components.Component")
+local PlayerProjectile = require("src.game.components.PlayerProjectile")
+local Vector2          = require("src.math.Vector2")
+local Scene            = require("src.core.classes.Scene")
 
 ---@class PlayerController : Component
 ---@field speed number
@@ -25,6 +28,11 @@ function PlayerController:update(dt)
 
 	if x == 0 and y == 0 then
 		return
+	end
+
+	if love.keyboard.isDown("e") then
+		local projectile = PlayerProjectile.new(500, Vector2.new(x, y))
+		Scene
 	end
 
 	local magnitude = math.sqrt(x * x + y * y)

@@ -26,6 +26,20 @@ function Scene:update(dt)
 	end
 end
 
+function Scene:draw()
+	if not self.active then
+		return
+	end
+
+	for i=1, #self.gameObjects do
+		local gameObject = self.gameObjects[i]
+
+		if gameObject.draw and gameObject.active then
+			gameObject:draw()
+		end
+	end
+end
+
 ---@param gameObject GameObject
 function Scene:addObject(gameObject)
 	table.insert(self.gameObjects, gameObject)
@@ -62,8 +76,12 @@ end
 function Scene:removeObject(uniqueId)
 	for i=1, #self.gameObjects do
 		local gameObject = self.gameObjects[i]
-		
-		
+
+		if gameObject.uniqueId == uniqueId then
+			table.remove(self.gameObjects, i)
+			gameObject:destroy()
+			return
+		end
 	end
 end
 

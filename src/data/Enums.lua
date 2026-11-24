@@ -11,6 +11,10 @@ Enums.Classes = {
 	Tag = "Tag",
 	Vector2 = "Vector2",
 	AnimatedSprite = "AnimatedSprite",
+	Player = "Player",
+	PlayerController = "PlayerController",
+	PlayerRenderer = "PlayerRenderer",
+	PlayerProjectile = "PlayerProjectile"
 }
 
 ---@enum Enums.ColorsFromRGB
