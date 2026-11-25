@@ -6,6 +6,7 @@ local Scene = BehaviorObject:extends()
 
 function Scene.new()
 	local self = BehaviorObject.new(Scene)
+	---@cast self Scene
 
 	self.gameObjects = {}
 
@@ -17,7 +18,7 @@ function Scene:update(dt)
 		return
 	end
 
-	for i=1, #self.gameObjects do
+	for i=#self.gameObjects, 1, -1 do
 		local gameObject = self.gameObjects[i]
 
 		if gameObject.update and gameObject.active then

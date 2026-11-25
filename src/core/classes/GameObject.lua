@@ -26,6 +26,33 @@ end
 ---TODO
 function GameObject:addChildren(children) end
 
+---@param dt number
+function GameObject:update(dt)
+	if not self.active then
+		return
+	end
+
+	for i = 1, #self._components do
+		local component = self._components[i]
+		if component.active and component.update then
+			component:update(dt)
+		end
+	end
+end
+
+function GameObject:draw()
+	if not self.visible then
+		return
+	end
+
+	for i = 1, #self._components do
+		local component = self._components[i]
+		if component.active and component.draw then
+			component:draw()
+		end
+	end
+end
+
 ---@generic T
 ---@param component Component|T A component instance
 ---@return T
