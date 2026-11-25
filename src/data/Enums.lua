@@ -15,7 +15,8 @@ Enums.Classes = {
 	PlayerController = "PlayerController",
 	PlayerRenderer = "PlayerRenderer",
 	PlayerProjectile = "PlayerProjectile",
-	Projectile = "Projectile"
+	Projectile = "Projectile",
+	Entity = "Entity"
 }
 
 ---@enum Enums.ColorsFromRGB
