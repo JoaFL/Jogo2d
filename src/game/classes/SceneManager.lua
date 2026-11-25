@@ -1,4 +1,3 @@
-local Scene = require "src.core.classes.Scene"
 local BehaviorObject = require "src.core.classes.BehaviorObject"
 
 ---@class SceneManager : BehaviorObject

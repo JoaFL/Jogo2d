@@ -22,3 +22,7 @@ Um pequeno projeto de jogo2d utilizando uma mini-engine própria
 
 ### Scripts disponíveis
 * love.exe main.lua - roda o jogo
+
+### Assets
+1. https://vryell.itch.io/tiny-enemies-vol1
+2. https://sscary.itch.io/the-adventurer-female
