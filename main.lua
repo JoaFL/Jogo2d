@@ -9,7 +9,6 @@ local SceneManager = require("src.game.classes.SceneManager")
 
 local go
 local scene
-local sceneManager
 ---@cast go Player
 
 function love.load()
@@ -17,8 +16,7 @@ function love.load()
 	go = Player.new(10, 10, 100)
 	scene = Scene.new()
 	scene:addObject(go)
-	sceneManager = SceneManager.new()
-	sceneManager:setCurrent(scene)
+	SceneManager:setCurrent(scene)
 
 	-- print(go:isA("Sprite"))
 	-- print(-a)
@@ -31,12 +29,12 @@ end
 
 ---@param dt number
 function love.update(dt)
-	sceneManager:update(dt)
+	SceneManager:update(dt)
 	return
 end
 
 function love.draw()
 	love.graphics.print("Hello World!", 10, 10)
-	sceneManager:draw()
+	SceneManager:draw()
 	return
 end

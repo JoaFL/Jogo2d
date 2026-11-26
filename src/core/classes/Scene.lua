@@ -49,10 +49,10 @@ end
 ---@param className Enums.Classes
 ---@return Object?
 function Scene:findFirstWhichIsA(className)
-	for i=1, self.gameObjects do
+	for i=1, #self.gameObjects do
 		local gameObject = self.gameObjects[i]
 
-		if gameObject:getClassName() == className then
+		if gameObject:isA(className) then
 			return gameObject
 		end
 	end
@@ -62,11 +62,11 @@ end
 ---@return Object[]
 function Scene:getAllWhichIsA(className)
 	local objects = {}
-	for i=1, self.gameObjects do
+	for i=1, #self.gameObjects do
 		local gameObject = self.gameObjects[i]
 
-		if gameObject:getClassName() == className then
-			table.insert(gameObject, objects)
+		if gameObject:isA(className) then
+			table.insert(objects, gameObject)
 		end
 	end
 

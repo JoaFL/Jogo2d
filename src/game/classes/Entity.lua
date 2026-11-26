@@ -1,34 +1,37 @@
-local GameObject = require "src.core.classes.GameObject"
-local AnimatedSprite = require "src.rendering.components.AnimatedSprite"
+local GameObject = require("src.core.classes.GameObject")
+local AnimatedSprite = require("src.rendering.components.AnimatedSprite")
 
 ---@class Entity : GameObject
 ---@field animatedSprite AnimatedSprite
 local Entity = GameObject:extends()
+Entity._className = Enums.Classes.Entity
 
-function Entity.new()
-    local self = GameObject.new(Entity)
+---@generic T
+---@param class T? The class that inherits Entity
+---@return T|Entity
+function Entity.new(class)
+    local self = GameObject.new(class or Entity)
     
-    self.animatedSprite = AnimatedSprite.new()
+    self.animatedSprite = self:addComponent(AnimatedSprite.new())
 
     return self
 end
 
----@param up Animation
----@param down Animation
----@param left Animation
----@param right Animation
+---@param name string
+---@param animation Animation
 ---@return Entity
-function Entity:addAnimation(name, up, down, left, right)
-    self.animatedSprite:addAnimation(name, up)
-    self.animatedSprite:addAnimation(name, down)
-    self.animatedSprite:addAnimation(name, left)
-    self.animatedSprite:addAnimation(name, right)
+function Entity:addAnimation(name, animation)
+    self.animatedSprite:addAnimation(name, animation)
 
     return self
 end
 
-function Entity:update(dt)
-    
+---@param name string
+---@return Entity
+function Entity:playAnimation(name)
+    self.animatedSprite:play(name)
+
+    return self
 end
 
 return Entity
